@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <title>Smart Weight Scale</title>
+</head>
+<body>
+    <nav class="navbar sticky-top navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Smart Weight Scale</a>
+        <div class="row color-wheat">
+            <div class="col pt-2">
+                <span class="date-now">date</span>
+            </div>
+            <div class="col">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">alvin kunnoh</a>                        
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">SignOut</a>                        
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link add-user">Add User</a>                        
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid bg-dark">
+        <div class="row bg-dark color-wheat mx-4 my-2">
+           <div class="col pt-4">
+               <span class="date-now">date</span>
+           </div>
+           <div class="col pt-4 date-picker">
+                <p>
+                    <span>Date Picker</span> 
+                    <input hidden id="start_dt" class='datepicker' size=10 title='D-MMM-YYYY' /> 
+                </p> 
+           </div>
+           <div class="col pt-4">
+               <span>Section 4</span>
+           </div>
+        </div>
+
+        <div class="row bg-dark justify-content-center">
+            <div class="color-wheat users-list bg-secondary col-sm-2 col-md-2 my-1">
+
+            </div>
+            <div class="col-sm-6 col-md-6">
+                <div class="bg-secondary graph-area color-wheat col my-1">
+                    <p>processing js graph</p>
+                </div>
+                <div class="bg-secondary color-wheat col my-1">
+                    <h5>INFORMATION ABOUT USER HEALTH</h5>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="bg-secondary stats color-wheat col my-1 py-1 px-2">
+                    <p class="user-stats">User statistics will be shown here</p>
+                </div>
+                <div class="bg-secondary color-wheat col my-1">
+                    <p>
+                        external links
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="apllication/javascript" src="./js/bootstrap.js"></script>
+    <script type="application/javascript" src="./js/datepicker.js"></script>
+    <script type="application/javascript" src="./js/index.js"></script>
+</body>
+</html>
