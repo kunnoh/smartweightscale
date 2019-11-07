@@ -50,7 +50,10 @@ var uiControl = (function(){
         date: document.querySelectorAll('.date-now'),
         addUser: document.querySelector('.add-user'),
         userList: document.querySelector('.users-list'),
-        userStatsDiv: document.querySelector('.stats')
+        userStatsDiv: document.querySelector('.stats'),
+        graphType: document.querySelector('.graph-type'),
+        pieChart: document.getElementById('chart'),
+        barGraph: document.getElementById('graph')
     };
 
     //modals
@@ -106,7 +109,7 @@ var uiControl = (function(){
             var heightInp = document.createElement('input');
             heightInp.setAttribute('type', 'text');
             heightInp.setAttribute('class', 'form-control');
-            heightInp.setAttribute('placeholder', 'Height');
+            heightInp.setAttribute('placeholder', 'Height in cm');
             heightInp.setAttribute('id', 'height');
             heightCol.appendChild(heightInp);
             hinputRow.appendChild(heightCol);
@@ -118,7 +121,7 @@ var uiControl = (function(){
             var mass = document.createElement('input');
             mass.setAttribute('type', 'text');
             mass.setAttribute('class', 'form-control');
-            mass.setAttribute('placeholder', 'Body Mass');
+            mass.setAttribute('placeholder', 'Body Mass in Kg');
             mass.setAttribute('id', 'mass');
             massCol.appendChild(mass);
             hinputRow.appendChild(massCol);
@@ -135,7 +138,7 @@ var uiControl = (function(){
             var ageInp = document.createElement('input');
             ageInp.setAttribute('type', 'text');
             ageInp.setAttribute('class', 'form-control');
-            ageInp.setAttribute('placeholder', 'Age');
+            ageInp.setAttribute('placeholder', 'Age in Year');
             ageInp.setAttribute('id', 'age');
             ageCol.appendChild(ageInp);
             ainputRow.appendChild(ageCol);
@@ -148,6 +151,10 @@ var uiControl = (function(){
             gender.setAttribute('class', 'custom-select');
             gender.setAttribute('id', 'gender');
             
+            var genderOpt = document.createElement('option');
+            genderOpt.setAttribute('value', '');
+            genderOpt.textContent = '-- Select Gender --';
+
             var male = document.createElement('option');
             male.setAttribute('value', 'male');
             male.textContent = 'Male';
@@ -155,6 +162,8 @@ var uiControl = (function(){
             var female = document.createElement('option');
             female.setAttribute('value', 'female');
             female.textContent = 'Female';
+
+            gender.appendChild(genderOpt);
             gender.appendChild(male);
             gender.appendChild(female);
             genderCol.appendChild(gender);
@@ -359,9 +368,30 @@ window.onload = function(){
             var users = dataControl.usersDb.getUserCollection();
             users.forEach(function(user){
                 if(user.name === e.target.innerText){
-                    uiControl.loadStats(user)
+                    uiControl.loadStats(user);
                 }
             });
         };
+
+        //graph chart switch
+        if(e.target.classList.contains('slider')){
+            if(e.target.firstElementChild.classList.contains('slider-on')){
+                e.target.firstElementChild.classList.remove('slider-on');
+                e.target.firstElementChild.classList.add('slider-off');
+                uiControl.domItem.graphType.innerText = '';
+                uiControl.domItem.graphType.innerText = 'Bar Graph';
+                uiControl.domItem.barGraph.style.display = 'block';
+                uiControl.domItem.pieChart.style.display = 'none';
+                return;
+            } else{
+                e.target.firstElementChild.classList.add('slider-on');
+                e.target.firstElementChild.classList.remove('slider-off');
+                uiControl.domItem.graphType.innerText = '';
+                uiControl.domItem.graphType.innerText = 'Pie Chart';
+                uiControl.domItem.pieChart.style.display = 'block';
+                uiControl.domItem.barGraph.style.display = 'none';
+                return;
+            };
+        }
     });
 };

@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script type="text/javascript" src="./js/p5.min.js"></script>
+    <script type="text/javascript" src="./js/sketc.js"></script>
     <title>Smart Weight Scale</title>
 </head>
 <body>
@@ -52,7 +54,19 @@
             </div>
             <div class="col-sm-6 col-md-6">
                 <div class="bg-secondary graph-area color-wheat col my-1">
-                    <p>processing js graph</p>
+                    <h5>User Data Visualization</h5>
+                    <div>
+                        <!-- Rounded switch -->
+                        <label class="switch">
+                            <input type="checkbox">
+                            <div class="slider">
+                                <span class="slide-btn round"></span>
+                            </div>
+                        </label>
+                        <span class="graph-type">Bar Graph</span>
+                    </div>
+                    <div id="graph"> </div>
+                    <div id="chart" style="display: none;"> </div>
                 </div>
                 <div class="bg-secondary color-wheat col my-1">
                     <h5>INFORMATION ABOUT USER HEALTH</h5>
@@ -70,8 +84,8 @@
             </div>
         </div>
     </div>
-    <script type="apllication/javascript" src="./js/bootstrap.js"></script>
-    <script type="application/javascript" src="./js/datepicker.js"></script>
-    <script type="application/javascript" src="./js/index.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.js"></script>
+    <script type="text/javascript" src="./js/datepicker.js"></script>
+    <script type="text/javascript" src="./js/index.js"></script>
 </body>
 </html>
